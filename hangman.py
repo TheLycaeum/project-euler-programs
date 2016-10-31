@@ -10,7 +10,5 @@ def secret_word():
     
     return word
 def hide_word(word):
-    word="saheed"
     blanks="*"*len(word)
-    print("word:" ,blanks)
     return blanks
