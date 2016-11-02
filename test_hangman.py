@@ -15,5 +15,5 @@ def test_replace_blanks():
    word="saheed"
    guessed="e"
    new=replace_blanks(word,guessed)
-   assert(word,guessed)
-   assert(new,guessed)
+   assert(guessed,word)
+   assert(guessed,new)
