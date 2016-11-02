@@ -11,4 +11,9 @@ def secret_word():
     return word
 def hide_word(word):
     blanks="*"*len(word)
+    print("word:")
+    return blanks
+
+def replace_blanks(word,guessed):
+    blanks=''.join([letter if letter in guessed else '*' for letter in word])
     return blanks
