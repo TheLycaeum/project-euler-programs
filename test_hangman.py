@@ -1,19 +1,16 @@
-from hangman import secret_word,hide_word,replace_blanks
+from hangman import secret_word,replace_blanks
 def test_secret_word():
-   f=open("/usr/share/dict/words")
-   word = secret_word()
-   assert(word,f)
-   assert(len(word)>5)
+   fname = "/home/saheed/project-euler-programs/text"
+   with open(fname, "w") as f:
+      for i in ["aa", "bbb", "cccccc"]:
+         f.write(i+"\n")
+   word = secret_word(fname, 5)
+   assert word=="cccccc","Wrong word was choosen {}".format(word)  
   
-
-def test_hide_word():
-   word="saheed"
-   blank_word = hide_word(word)
-   assert('******' == blank_word)
-
+   
 def test_replace_blanks():
    word="saheed"
-   guessed="e"
+   guessed=["e","a"]
    new=replace_blanks(word,guessed)
-   assert(guessed,word)
-   assert(guessed,new)
+   assert("*a*ee*"== new)
+   
