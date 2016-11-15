@@ -10,41 +10,39 @@ def secret_word(word_file = "/usr/share/dict/words", length = 5):
    
     return word
 
-
-
-guessed=[]
-
 def replace_blanks(word,guessed):
     new_blanks=''.join([letter if letter in guessed else '*' for letter in word])
     return new_blanks
 
 def main_function():
+    guessed=[] 
     word=secret_word()
-    blanks="*"*len(word)
-    print(blanks)
+    print("*"*len(word))
     count=10
     wrong_guesses=[]
     while count!=0:
-        #for guess in word:
+         
         guess=input("Enter a guess:")
+        if guess in guessed:
+            print("!!!You already guessed the letter!!!!:",guess)
+            
         if guess in word:
             guessed.append(guess)
             print("secret word contains:",guess)
-            new_word=replace_blanks(word,guessed)       
+            new_word=replace_blanks(word,guessed)
             print("word:",new_word)
             if new_word==word:
                 print("####congratulation####! The word was :",word)
                 break
-            
+        
         else:
-            if guess not in word:
-                wrong_guesses.append(guess)
-                count-=1
-                print("wrong guesses:",wrong_guesses)
-                print("Turns remaining:",count)
-               
-    
-
+           
+            #if guess not in word:
+            wrong_guesses.append(guess)
+            count-=1
+            print("wrong guesses:",wrong_guesses)
+            print("Turns remaining:",count)
+                
 if __name__=='__main__':
    
     main_function()
