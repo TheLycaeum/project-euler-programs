@@ -33,17 +33,18 @@ def main_function():
             new_word=replace_blanks(word,guessed)
             print("word:",new_word)
             print("wrong guesses:",wrong_guesses)
-       
+            
             if new_word==word:
                 print("####congratulation####! The word was :",word)
                 break
             
         else:
+        
             wrong_guesses.append(guess)
             count-=1
             print("wrong guesses:",wrong_guesses)
             print("Turns remaining:",count)   
-        
+            print("word:",new_word)
            
                 
 if __name__=='__main__':
