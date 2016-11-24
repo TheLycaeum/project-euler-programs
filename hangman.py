@@ -22,26 +22,29 @@ def main_function():
     wrong_guesses=[]
     while count!=0:
          
-        guess=input("Enter a guess:")
-        if guess in guessed:
+        guess = input('Enter a guess:')
+        if guess=='':
+            continue
+        if guess in guessed or guess in wrong_guesses:
             print("!!!You already guessed the letter!!!!:",guess)
-            
-        if guess in word:
+        elif guess in word:
             guessed.append(guess)
             print("secret word contains:",guess)
             new_word=replace_blanks(word,guessed)
             print("word:",new_word)
+            print("wrong guesses:",wrong_guesses)
+       
             if new_word==word:
                 print("####congratulation####! The word was :",word)
                 break
-        
+            
         else:
-           
-            #if guess not in word:
             wrong_guesses.append(guess)
             count-=1
             print("wrong guesses:",wrong_guesses)
-            print("Turns remaining:",count)
+            print("Turns remaining:",count)   
+        
+           
                 
 if __name__=='__main__':
    
