@@ -9,4 +9,4 @@ def sq_tables(n):
         
         print("\n")
 if __name__=="__main__":
-    sq_tables(5)
+    sq_tables(10)
